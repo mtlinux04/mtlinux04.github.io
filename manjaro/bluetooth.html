@@ -1,0 +1,76 @@
+<h1>How to pair and connect to bluetooth devices both ways (from GUI and from command line)</h1>
+
+The bluetooth is configured by default after installing Manjaro Linux (Full or Minimal version) and the bluetooth icon on the system tray is diaplayed. But if some reason bluetooth is not installed, you can do this with following command</p>
+<pre>sudo pacman -S bluez blueman bluez-obex</pre>
+
+	bluez – the Bluetooth protocol stack
+	blueman is a full featured Bluetooth manager
+	bluez-obex – Object Exchange daemon for sharing content
+  
+	In one of the following videos, I will explain in more detail why you need to install the bluez-obex package. For now, just follow the instructions.
+  
+	Make sure the bluetooth service is enabled. We need to type the command:
+<pre>sudo systemctl status bluetooth</pre>
+
+	If output results show the bluetooth service is automatically started and the bluetooth icon is shown in the system tray, that's OK.
+  
+	If the service is not enabled, you need to type following commands:
+<pre>sudo systemctl enable bluetooth</pre>
+<pre>sudo systemctl start bluetooth</pre>
+<pre>sudo systemctl status bluetooth</pre>
+
+	After that the service should be running successfully. If you don’t see the bluetooth icon in the system tray, log out of the user and log in or restart the system to apply the changes.
+  
+	After Bluetooth is configured, you can click on the Bluetooth icon in the system tray or go to “Menu” and on the search bar type “Bluetooth Manager”, and the graphical window opens.
+  
+	1) Graphical interface method
+	The first method we will consider is the graphical interface.
+   Make sure the bluetooth is enabled on both the host and the client. Otherwise, the client device will not be detected. On the “Bluetooth Devices” window navigate the cursor to “Search” button and click it or right-click mouse button on the bluetooth system tray icon and click “Make Discoverable”. You will see list of avaliable devices, each of which has its own MAC address.
+	To pair the device, double-click the device you want to connect or right-click mouse button on certain device and click “Connect”. The phone will ask you to pair with my laptop device using 6-digit passkey number. On the phone tap “Pair”. A notification will appear on the laptop requiring you to confirm the value for authenticating the paired device. Click “Confirm” and we have successfully connected to my phone. You can also separately click “Key” symbol on the “Bluetooth Devices” window to pair device, and then connect. This will work the same way.
+	You can click “Ticked” icon to mark the device as trusted and “Stop” icon to unmark the device as trusted.
+	To view the visibility and change the name of bluetooth adapter, on the “Bluetooth Devices” window go to “Adapter – Preferences” or go to “Menu – on the search bar type “Bluetooth Adapters” or on the terminal type command blueman-adapters.
+	To close the connection double-click the device we connected or right-click mouse button on certain device and click “Disconnect”.
+	2) Command line method
+	The second method we will consider is command line method. To do this, we need to install the package with the following command:
+<pre>sudo pacman -S bluez-utils</pre>
+	and then type 
+<pre>bluetoothctl</pre>
+	To turn on adapter, type the command
+<pre>power on</pre>
+	To make the device discoverable, type 
+<pre>discoverable on</pre>
+	To see the list of devices and get MAC address of the device with which to pair, type "devices" or "scan on"
+<pre>devices</pre>  
+<pre>
+# enter device discovery mode if device is not yet on the list
+scan on 
+</pre>
+	To pair the device, type
+<pre>
+# copy MAC-address of the client device and press “Enter”.
+pair 00:1A:2B:3C:4D:5E
+</pre>
+	To connect to the device, type 
+<pre>
+# copy MAC-address of the client  press “Enter”, and you will see a similar pairing request. Confirm it on the client, and then on the host.
+connect 00:1A:2B:3C:4D:5E
+</pre>
+	To disconnect the device, type
+<pre>
+# MAC-address and press “Enter”, after that the device should be disconnected
+disconnect 00:1A:2B:3C:4D:5E
+</pre>
+	To remove paired device, type
+<pre>  
+# copy MAC-address of the client, press “Enter” and we can see the message “Device has been removed”
+remove 00:1A:2B:3C:4D:5E
+</pre>
+	Type “quit” or “exit” to exit bluetoothctl.
+
+<pre>
+quit
+</pre>
+<pre>
+exit
+</pre>
+
