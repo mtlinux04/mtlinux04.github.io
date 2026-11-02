@@ -1,146 +1,300 @@
-<a href = "https://mtlinux04.github.io/">Home page</a>
+<html>
+    <head>
+        <link rel = "stylesheet" href = css/main.css>
+    </head>
+    <body>
+        <a href = "https://mtlinux04.github.io/">Home page</a>
 
-<h1>How to pair and connect to bluetooth devices both ways (from GUI and from command line)</h1>
+        <h1>How to pair and connect to bluetooth devices both ways (from GUI and from command line)</h1>
 
-<h2>XFCE</h2>
-<p>The bluetooth is configured by default after installing Manjaro Linux (Full or Minimal version) and the bluetooth icon on the system tray is displayed.</p>
-<img src = "images/xfce/img01.png" alt = "Unfortunately, image is missing.">
+        <h2 id = "toggleBtnxfce">XFCE</h2>
+        <div id = "xfce_block" class = "content-block hidden">
+            <p>The bluetooth is configured by default after installing Manjaro Linux (Full or Minimal version) and the bluetooth icon on the system tray is displayed.</p>
+            <img src = "images/xfce/img01.png" alt = "Unfortunately, image is missing.">
 
-<p>But if some reason bluetooth is not installed, you can do this with following command</p>
+            <p>But if some reason bluetooth is not installed, you can do this with following command</p>
 
-<pre>sudo pacman -S bluez blueman bluez-obex</pre>
+            <pre>sudo pacman -S bluez blueman bluez-obex</pre>
 
-<p>bluez – the Bluetooth protocol stack</p>
-<p>blueman is a full featured Bluetooth manager</p>
-<p>bluez-obex – Object Exchange daemon for sharing content</p>
+            <p>bluez – the Bluetooth protocol stack</p>
+            <p>blueman is a full featured Bluetooth manager</p>
+            <p>bluez-obex – Object Exchange daemon for sharing content</p>
 
-<p>In one of the following videos, I will explain in more detail why you need to install the bluez-obex package. For now, just follow the instructions.</p>
+            <p>In one of the following videos, I will explain in more detail why you need to install the bluez-obex package. For now, just follow the instructions.</p>
 
-<p>Make sure the bluetooth service is enabled. We need to type the command:</p>
-<pre>sudo systemctl status bluetooth</pre>
+            <p>Make sure the bluetooth service is enabled. We need to type the command:</p>
+            <pre>sudo systemctl status bluetooth</pre>
 
-<p>If output results show the bluetooth service is automatically started and the bluetooth icon is shown in the system tray, that's OK.</p>
+            <p>If output results show the bluetooth service is automatically started and the bluetooth icon is shown in the system tray, that's OK.</p>
 
-<p>If the service is not enabled, you need to type following commands:</p>
-<pre>sudo systemctl enable bluetooth</pre>
-<pre>sudo systemctl start bluetooth</pre>
-<pre>sudo systemctl status bluetooth</pre>
+            <p>If the service is not enabled, you need to type following commands:</p>
+            <pre>sudo systemctl enable bluetooth</pre>
+            <pre>sudo systemctl start bluetooth</pre>
+            <pre>sudo systemctl status bluetooth</pre>
 
-<p>After that the service should be running successfully. If you don’t see the bluetooth icon in the system tray, log out of the user and log in or restart the system to apply the changes.</p>
+            <p>After that the service should be running successfully. If you don’t see the bluetooth icon in the system tray, log out of the user and log in or restart the system to apply the changes.</p>
 
-<p>After Bluetooth is configured, you can click on the Bluetooth icon in the system tray or go to “Menu” and on the search bar type “Bluetooth Manager”, and the graphical window opens.</p>
+            <p>After Bluetooth is configured, you can click on the Bluetooth icon in the system tray or go to “Menu” and on the search bar type “Bluetooth Manager”, and the graphical window opens.</p>
 
-<p>1) Graphical interface method</p>
-<p>Make sure the bluetooth is enabled on both the host and the client. Otherwise, the client device will not be detected. 
+            <p>1) Graphical interface method</p>
+            <p>Make sure the bluetooth is enabled on both the host and the client. Otherwise, the client device will not be detected.
 
-<p>On the “Bluetooth Devices” window navigate the cursor to “Search” button and click it.</p>
-<img src = "images/xfce/img02.png" alt = "Unfortunately, image is missing.">
+            <p>On the “Bluetooth Devices” window navigate the cursor to “Search” button and click it.</p>
+            <img src = "images/xfce/img02.png" alt = "Unfortunately, image is missing.">
 
-<p>You will see list of avaliable devices, each of which has its own MAC address.</p>
-<img src = "images/xfce/img03.png" alt = "Unfortunately, image is missing.">
+            <p>You will see list of avaliable devices, each of which has its own MAC address.</p>
+            <img src = "images/xfce/img03.png" alt = "Unfortunately, image is missing.">
 
-<p>To pair the device, double-click the device you want to connect</p>
-<img src = "images/xfce/img03.png" alt = "Unfortunately, image is missing.">
+            <p>To pair the device, double-click the device you want to connect</p>
+            <img src = "images/xfce/img03.png" alt = "Unfortunately, image is missing.">
 
-<p>or right-click mouse button on certain device and click “Connect”.</p>
-<img src = "images/xfce/img04.png" alt = "Unfortunately, image is missing.">
+            <p>or right-click mouse button on certain device and click “Connect”.</p>
+            <img src = "images/xfce/img04.png" alt = "Unfortunately, image is missing.">
 
-<p>The phone will ask you to pair with my laptop device using 6-digit passkey number. On the phone tap “Pair”.</p>
-<img src = "images/xfce/img05.png" alt = "Unfortunately, image is missing.">
+            <p>The phone will ask you to pair with my laptop device using 6-digit passkey number. On the phone tap “Pair”.</p>
+            <img src = "images/xfce/img05.png" alt = "Unfortunately, image is missing.">
 
-<p>A notification will appear on the laptop requiring you to confirm the value for authenticating the paired device. Click “Confirm” and the phone should be successfully connected successfully.</p>
-<img src = "images/xfce/img06.png" alt = "Unfortunately, image is missing.">
+            <p>A notification will appear on the laptop requiring you to confirm the value for authenticating the paired device. Click “Confirm” and the phone should be successfully connected successfully.</p>
+            <img src = "images/xfce/img06.png" alt = "Unfortunately, image is missing.">
 
-<p>You can also separately click “Key” symbol on the “Bluetooth Devices” window to pair device, and then connect. This will work the same way.</p>
-<img src = "images/xfce/img07.png" alt = "Unfortunately, image is missing.">
+            <p>You can also separately click “Key” symbol on the “Bluetooth Devices” window to pair device, and then connect. This will work the same way.</p>
+            <img src = "images/xfce/img07.png" alt = "Unfortunately, image is missing.">
 
-<p>You can click “Ticked” icon to mark the device as trusted.</p>
-<img src = "images/xfce/img08.png" alt = "Unfortunately, image is missing.">
+            <p>You can click “Ticked” icon to mark the device as trusted.</p>
+            <img src = "images/xfce/img08.png" alt = "Unfortunately, image is missing.">
 
-<p>You can click “Stop” icon to unmark the device as trusted.</p>
-<img src = "images/xfce/img09.png" alt = "Unfortunately, image is missing.">
+            <p>You can click “Stop” icon to unmark the device as trusted.</p>
+            <img src = "images/xfce/img09.png" alt = "Unfortunately, image is missing.">
 
-<p>To view the visibility and change the name of bluetooth adapter, on the “Bluetooth Devices” window go to “Adapter – Preferences”</p>
-<img src = "images/xfce/img10.png" alt = "Unfortunately, image is missing.">
+            <p>To view the visibility and change the name of bluetooth adapter, on the “Bluetooth Devices” window go to “Adapter – Preferences”</p>
+            <img src = "images/xfce/img10.png" alt = "Unfortunately, image is missing.">
 
-<p>or go to “Menu – on the search bar type “Bluetooth Adapters”</p>
-<img src = "images/xfce/img11.png" alt = "Unfortunately, image is missing.">
+            <p>or go to “Menu – on the search bar type “Bluetooth Adapters”</p>
+            <img src = "images/xfce/img11.png" alt = "Unfortunately, image is missing.">
 
-<p>or on the terminal type command blueman-adapters</p>
-<img src = "images/xfce/img12.png" alt = "Unfortunately, image is missing.">
+            <p>or on the terminal type command blueman-adapters</p>
+            <img src = "images/xfce/img12.png" alt = "Unfortunately, image is missing.">
 
-<p>To close the connection double-click the device we connected</p>
-<img src = "images/xfce/img13.png" alt = "Unfortunately, image is missing.">
+            <p>To close the connection double-click the device we connected</p>
+            <img src = "images/xfce/img13.png" alt = "Unfortunately, image is missing.">
 
-<p>or right-click mouse button on certain device and click “Disconnect”.</p>
-<img src = "images/xfce/img14.png" alt = "Unfortunately, image is missing.">
+            <p>or right-click mouse button on certain device and click “Disconnect”.</p>
+            <img src = "images/xfce/img14.png" alt = "Unfortunately, image is missing.">
 
-<p>2) Command line method</p>
+            <p>2) Command line method</p>
 
-<p>The second method we will consider is command line method. To do this, we need to install the package with the following command:</p>
-<pre>sudo pacman -S bluez-utils</pre>
+            <p>The second method we will consider is command line method. To do this, we need to install the package with the following command:</p>
+            <pre>sudo pacman -S bluez-utils</pre>
 
-<p>After installing bluez-utils type:</p>
-<pre>bluetoothctl</pre>
-<img src = "images/xfce/img15.png" alt = "Unfortunately, image is missing.">
+            <p>After installing bluez-utils type:</p>
+            <pre>bluetoothctl</pre>
+            <img src = "images/xfce/img15.png" alt = "Unfortunately, image is missing.">
 
-<p>To turn on adapter, type the command</p>
-<pre>power on</pre>
-<img src = "images/xfce/img16.png" alt = "Unfortunately, image is missing.">
+            <p>To turn on adapter, type the command</p>
+            <pre>power on</pre>
+            <img src = "images/xfce/img16.png" alt = "Unfortunately, image is missing.">
 
-<p>To make the device discoverable, type</p>
-<pre>discoverable on</pre>
-<img src = "images/xfce/img17.png" alt = "Unfortunately, image is missing.">
+            <p>To make the device discoverable, type</p>
+            <pre>discoverable on</pre>
+            <img src = "images/xfce/img17.png" alt = "Unfortunately, image is missing.">
 
-<p>To see the list of devices and get MAC address of the device with which to pair, type "devices" or "scan on"</p>
-<pre>devices</pre>
-<pre>
+            <p>To see the list of devices and get MAC address of the device with which to pair, type "devices" or "scan on"</p>
+            <pre>devices</pre>
+            <pre>
 # enter device discovery mode if device is not yet on the list
 scan on
-</pre>
-<img src = "images/xfce/img18.png" alt = "Unfortunately, image is missing.">
+            </pre>
+            <img src = "images/xfce/img18.png" alt = "Unfortunately, image is missing.">
 
-<p>To pair the device, type</p>
-<pre>
+            <p>To pair the device, type</p>
+            <pre>
 # copy MAC-address of the client device and press “Enter”.
 pair 00:1A:2B:3C:4D:5E
-</pre>
-<img src = "images/xfce/img19.png" alt = "Unfortunately, image is missing.">
+            </pre>
+            <img src = "images/xfce/img19.png" alt = "Unfortunately, image is missing.">
 
-<p>You will see a similar pairing request. Confirm it on the client, and then on the host.</p>
-<img src = "images/xfce/img20.png" alt = "Unfortunately, image is missing.">
+            <p>You will see a similar pairing request. Confirm it on the client, and then on the host.</p>
+            <img src = "images/xfce/img20.png" alt = "Unfortunately, image is missing.">
 
-<p>To connect to the device, type</p>
-<pre>
+            <p>To connect to the device, type</p>
+            <pre>
 # copy MAC-address of the client  press “Enter”
 connect 00:1A:2B:3C:4D:5E
-</pre>
-<img src = "images/xfce/img21.png" alt = "Unfortunately, image is missing.">
+            </pre>
+            <img src = "images/xfce/img21.png" alt = "Unfortunately, image is missing.">
 
-<p>To disconnect the device, type</p>
-<pre>
+            <p>To disconnect the device, type</p>
+            <pre>
 # MAC-address and press “Enter”, after that the device should be disconnected
 disconnect 00:1A:2B:3C:4D:5E
-</pre>
-<img src = "images/xfce/img22.png" alt = "Unfortunately, image is missing.">
+            </pre>
+            <img src = "images/xfce/img22.png" alt = "Unfortunately, image is missing.">
 
-<p>To remove paired device, type</p>
-<pre>
+            <p>To remove paired device, type</p>
+            <pre>
 # copy MAC-address of the client, press “Enter” and we can see the message “Device has been removed”
 remove 00:1A:2B:3C:4D:5E
-</pre>
-<img src = "images/xfce/img23.png" alt = "Unfortunately, image is missing.">
+            </pre>
+            <img src = "images/xfce/img23.png" alt = "Unfortunately, image is missing.">
 
-<p>Type “quit” or “exit” to exit bluetoothctl.</p>
-<pre>quit</pre>
-<pre>exit</pre>
-<img src = "images/xfce/img23.png" alt = "Unfortunately, image is missing.">
+            <p>Type “quit” or “exit” to exit bluetoothctl.</p>
+            <pre>quit</pre>
+            <pre>exit</pre>
+            <img src = "images/xfce/img23.png" alt = "Unfortunately, image is missing.">
+        </div>
 
+        <p>^^^^^ Expand block for more details ^^^^^</p>
+        <p>Click on text XFCE, KDE Plasma or GNOME for expanding/collapsing block of content</p>
 
-<p>For KDE Plasma and GNOME desktop environment some commands will be executed in the same way, but some steps may differ. Over time, these instructions for the other two desktop environments will be available on the github.io website; the link is in the description below this video.</p>
+        <p>For KDE Plasma and GNOME desktop environment some commands will be executed in the same way, but some steps may differ. Over time, these instructions for the other two desktop environments will be available on the github.io website; the link is in the description below this video.</p>
 
-<h2>KDE Plasma</h2>
-<pre>Coming soon...</pre>
+        <h2 id = "toggleBtnkde">KDE Plasma</h2>
+        <div id = "kde_block" class = "content-block hidden">
+            <p>The bluetooth is configured by default after installing Manjaro Linux (Full or Minimal version) and the bluetooth icon on the system tray is displayed.</p>
+            <img src = "images/kde/img01.png" alt = "Unfortunately, image is missing.">
 
-<h2>GNOME</h2>
-<pre>Coming soon...</pre>
+            <p>But if some reason bluetooth is not installed, you can do this with following command</p>
+
+            <pre>sudo pacman -S bluez blueman bluez-obex</pre>
+
+            <p>bluez – the Bluetooth protocol stack</p>
+            <p>bluedevil - KDE's bluetooth tool</p>
+            <p>bluez-obex – Object Exchange daemon for sharing content</p>
+
+            <p>In one of the following videos, I will explain in more detail why you need to install the bluez-obex package. For now, just follow the instructions.</p>
+
+            <p>Make sure the bluetooth service is enabled. We need to type the command:</p>
+            <pre>sudo systemctl status bluetooth</pre>
+
+            <p>If output results show the bluetooth service is automatically started and the bluetooth icon is shown in the system tray, that's OK.</p>
+
+            <p>If the service is not enabled, you need to type following commands:</p>
+            <pre>sudo systemctl enable bluetooth</pre>
+            <pre>sudo systemctl start bluetooth</pre>
+            <pre>sudo systemctl status bluetooth</pre>
+
+            <p>After that the service should be running successfully. If you don’t see the bluetooth icon in the system tray, log out of the user and log in or restart the system to apply the changes.</p>
+
+            <p>After Bluetooth is configured, you can click on the Bluetooth icon in the system tray or go to “Menu” and on the search bar type “Bluetooth” or "Menu - System Settings - Bluetooth", and the graphical window opens.</p>
+
+            <p>1) Graphical interface method</p>
+            <p>Make sure the bluetooth is enabled on both the host and the client. Otherwise, the client device will not be detected.
+
+            <p>You will see list of avaliable devices, each of which has its own MAC address.</p>
+            <p>"Bluetooth — System Settings" window</p>
+            <img src = "images/kde/img02.png" alt = "Unfortunately, image is missing.">
+            <p>Bluetooth window after clicking icon on the system tray</p>
+            <img src = "images/kde/img03.png" alt = "Unfortunately, image is missing.">
+
+            <p>To pair the device, on the "Bluetooth — System Settings" window or on the system tray window click "Pair Device..."</p>
+            <img src = "images/kde/img03.png" alt = "Unfortunately, image is missing.">
+
+            <p>On the "Add Bluetooth Device" window click on certain device or double-click on certain device and click "Next"</p>
+            <img src = "images/kde/img04.png" alt = "Unfortunately, image is missing.">
+
+            <p>The phone will ask you to pair with my laptop device using 6-digit passkey number. On the phone tap “Pair”.</p>
+            <img src = "images/kde/img05.png" alt = "Unfortunately, image is missing.">
+
+            <p>On the "Add Bluetooth Device" you need to confirm the value for authenticating the paired device. Click “Matches” and the phone should be successfully connected successfully.</p>
+            <img src = "images/kde/img06.png" alt = "Unfortunately, image is missing.">
+
+            <p>You can navigate cursor on certain device and click it on the "Bluetooth — System Settings" window</p>
+            <img src = "images/kde/img07.png" alt = "Unfortunately, image is missing.">
+
+            <p>and enable the slider “Trusted” to ON to mark the device as trusted.</p>
+            <img src = "images/kde/img08.png" alt = "Unfortunately, image is missing.">
+
+            <p>You enable the slider “Trusted” to OFF to unmark the device as trusted.</p>
+            <img src = "images/kde/img09.png" alt = "Unfortunately, image is missing.">
+
+            <p>To view the visibility and change the name of bluetooth adapter, on the “Bluetooth — System Settings” window click "Configure" button</p>
+            <img src = "images/kde/img10.png" alt = "Unfortunately, image is missing.">
+
+            <p>to view the settings</p>
+            <img src = "images/kde/img11.png" alt = "Unfortunately, image is missing.">
+
+            <p>To close the connection on the "Bluetooth — System Settings" click "Disconnect" button on the device we connected</p>
+            <img src = "images/kde/img12.png" alt = "Unfortunately, image is missing.">
+
+            <p>or on the system tray window click "Disconnect" button on the device we connected</p>
+            <img src = "images/kde/img13.png" alt = "Unfortunately, image is missing.">
+
+            <p>or navigate cursor on certain device and click it on the "Bluetooth — System Settings" window</p>
+            <img src = "images/kde/img07.png" alt = "Unfortunately, image is missing.">
+
+            <p>and on the certain device we clicked press “Disconnect”.</p>
+            <img src = "images/kde/img14.png" alt = "Unfortunately, image is missing.">
+
+            <p>2) Command line method</p>
+
+            <p>The second method we will consider is command line method. To do this, we need to install the package with the following command:</p>
+            <pre>sudo pacman -S bluez-utils</pre>
+
+            <p>After installing bluez-utils type:</p>
+            <pre>bluetoothctl</pre>
+            <img src = "images/kde/img15.png" alt = "Unfortunately, image is missing.">
+
+            <p>To turn on adapter, type the command</p>
+            <pre>power on</pre>
+            <img src = "images/kde/img16.png" alt = "Unfortunately, image is missing.">
+
+            <p>To make the device discoverable, type</p>
+            <pre>discoverable on</pre>
+            <img src = "images/kde/img17.png" alt = "Unfortunately, image is missing.">
+
+            <p>To see the list of devices and get MAC address of the device with which to pair, type "devices" or "scan on"</p>
+            <pre>devices</pre>
+            <pre>
+# enter device discovery mode if device is not yet on the list
+scan on
+            </pre>
+            <img src = "images/kde/img18.png" alt = "Unfortunately, image is missing.">
+
+            <p>To pair the device, type</p>
+            <pre>
+# copy MAC-address of the client device and press “Enter”.
+pair 00:1A:2B:3C:4D:5E
+            </pre>
+            <img src = "images/kde/img19.png" alt = "Unfortunately, image is missing.">
+
+            <p>You will see a similar pairing request. Confirm it on the client, and then on the host.</p>
+            <img src = "images/kde/img19.png" alt = "Unfortunately, image is missing.">
+
+            <p>To connect to the device, type</p>
+            <pre>
+# copy MAC-address of the client  press “Enter”
+connect 00:1A:2B:3C:4D:5E
+            </pre>
+            <img src = "images/kde/img20.png" alt = "Unfortunately, image is missing.">
+
+            <p>To disconnect the device, type</p>
+            <pre>
+# MAC-address and press “Enter”, after that the device should be disconnected
+disconnect 00:1A:2B:3C:4D:5E
+            </pre>
+            <img src = "images/kde/img21.png" alt = "Unfortunately, image is missing.">
+
+            <p>To remove paired device, type</p>
+            <pre>
+# copy MAC-address of the client, press “Enter” and we can see the message “Device has been removed”
+remove 00:1A:2B:3C:4D:5E
+            </pre>
+            <img src = "images/kde/img22.png" alt = "Unfortunately, image is missing.">
+
+            <p>Type “quit” or “exit” to exit bluetoothctl.</p>
+            <pre>quit</pre>
+            <pre>exit</pre>
+            <img src = "images/kde/img22.png" alt = "Unfortunately, image is missing.">
+        </div>
+
+        <p>^^^^^ Expand block for more details ^^^^^</p>
+        <p>Click on text XFCE, KDE Plasma or GNOME for expanding/collapsing block of content</p>
+
+        <p>For KDE Plasma and GNOME desktop environment some commands will be executed in the same way, but some steps may differ. Over time, these instructions for the other two desktop environments will be available on the github.io website; the link is in the description below this video.</p>
+
+        <h2>GNOME</h2>
+        <pre>Coming soon...</pre>
+
+        <script src = "js/main.js"></script>
+    </body>
+</html>
